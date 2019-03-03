@@ -1,6 +1,6 @@
 ﻿Imports System.IO
 
-Public Class Form1
+Public Class TextConverterMainForm
     Public Function EncodingList() As DataTable
         Dim encodingTable As New DataTable()
         encodingTable.Columns.Add("id")
@@ -158,8 +158,8 @@ Public Class Form1
         ' System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance)
 
         'Get encoding objects from values in comboboxes
-        Dim inputEncodingID As String = cmbBoxInputEncoding.SelectedValue("id").ToString
-        Dim outputEncodingID As String = cmbBoxOutputEncoding.SelectedValue("id").ToString
+        Dim inputEncodingID As Integer = Convert.ToInt32(cmbBoxInputEncoding.SelectedValue("id"))
+        Dim outputEncodingID As Integer = Convert.ToInt32(cmbBoxOutputEncoding.SelectedValue("id"))
         Dim inputEncoding As System.Text.Encoding = System.Text.Encoding.GetEncoding(inputEncodingID)
         Dim outputEncoding As System.Text.Encoding = System.Text.Encoding.GetEncoding(outputEncodingID)
 
@@ -219,9 +219,6 @@ Public Class Form1
 
     End Sub
 
-    Private Sub txtBoxFilePathInput_TextChanged(sender As Object, e As EventArgs) Handles txtBoxFilePathInput.TextChanged
-
-    End Sub
 
     Private Sub CloseProgram(sender As Object, e As EventArgs) Handles btnCloseProgram.Click
         'Exit button, closes the program
@@ -240,15 +237,27 @@ Public Class Form1
         cmbBoxOutputEncoding.DisplayMember = "description"
     End Sub
 
-    Private Sub cmbBoxInputEncoding_SelectedIndexChanged_1(sender As Object, e As EventArgs) Handles cmbBoxInputEncoding.SelectedIndexChanged
+    Private Sub btnBrowseForInputFile_Click(sender As Object, e As EventArgs) Handles btnBrowseForInputFile.Click
+        If OpenFileDialog1.ShowDialog <> Windows.Forms.DialogResult.Cancel Then
+            txtBoxFilePathInput.Text = OpenFileDialog1.FileName
+        End If
+    End Sub
+
+    Private Sub btnBrowseForOutputFile_Click(sender As Object, e As EventArgs) Handles btnBrowseForOutputFile.Click
+        If SaveFileDialog1.ShowDialog <> Windows.Forms.DialogResult.Cancel Then
+            txtBoxFilePathOutput.Text = SaveFileDialog1.FileName
+        End If
+    End Sub
+
+    Private Sub lblDescription_Click(sender As Object, e As EventArgs) Handles lblDescription.Click
 
     End Sub
 
-    Private Sub cmbBoxOutputEncoding_SelectedIndexChanged_1(sender As Object, e As EventArgs) Handles cmbBoxOutputEncoding.SelectedIndexChanged
+    Private Sub MenuStrip1_ItemClicked(sender As Object, e As ToolStripItemClickedEventArgs) Handles MenuStrip1.ItemClicked
 
     End Sub
 
-    Private Sub btnTest_Click(sender As Object, e As EventArgs) Handles btnTest.Click
-        txtBoxTest.Text = cmbBoxInputEncoding.SelectedValue("id").ToString
+    Private Sub HelpToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles HelpToolStripMenuItem.Click
+
     End Sub
 End Class
