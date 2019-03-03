@@ -148,6 +148,8 @@ Public Class TextConverterMainForm
         encodingTable.Rows.Add("65000", "utf-7", "Unicode (UTF-7)")
         encodingTable.Rows.Add("65001", "utf-8", "Unicode (UTF-8)")
 
+        encodingTable.DefaultView.Sort = "description ASC"
+
         EncodingList = encodingTable
     End Function
 
@@ -160,9 +162,9 @@ Public Class TextConverterMainForm
         'Get encoding objects from values in comboboxes
         Dim inputEncodingID As Integer = Convert.ToInt32(cmbBoxInputEncoding.SelectedValue("id"))
         Dim outputEncodingID As Integer = Convert.ToInt32(cmbBoxOutputEncoding.SelectedValue("id"))
-        Dim inputEncoding As System.Text.Encoding = System.Text.Encoding.GetEncoding(inputEncodingID)
-        Dim outputEncoding As System.Text.Encoding = System.Text.Encoding.GetEncoding(outputEncodingID)
-
+        Dim inputEncoding As System.Text.Encoding = System.Text.Encoding.GetEncoding(1142) 'inputEncodingID)
+        Dim outputEncoding As System.Text.Encoding = System.Text.Encoding.Default 'GetEncoding(outputEncodingID)
+        txtBoxTest.Text = "Input: " + inputEncodingID.ToString + " To output: " + outputEncodingID.ToString
 
         'Set the encoding to the EBCDIC code page.
         'Dim encoding As System.Text.Encoding = System.Text.Encoding.GetEncoding(37)

@@ -45,6 +45,7 @@ Partial Class TextConverterMainForm
         Me.FileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.txtBoxTest = New System.Windows.Forms.TextBox()
         Me.Panel2.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
@@ -97,7 +98,6 @@ Partial Class TextConverterMainForm
         Me.cmbBoxOutputEncoding.Location = New System.Drawing.Point(79, 73)
         Me.cmbBoxOutputEncoding.Name = "cmbBoxOutputEncoding"
         Me.cmbBoxOutputEncoding.Size = New System.Drawing.Size(306, 21)
-        Me.cmbBoxOutputEncoding.Sorted = True
         Me.cmbBoxOutputEncoding.TabIndex = 19
         '
         'Label5
@@ -207,7 +207,6 @@ Partial Class TextConverterMainForm
         Me.cmbBoxInputEncoding.Location = New System.Drawing.Point(68, 76)
         Me.cmbBoxInputEncoding.Name = "cmbBoxInputEncoding"
         Me.cmbBoxInputEncoding.Size = New System.Drawing.Size(319, 21)
-        Me.cmbBoxInputEncoding.Sorted = True
         Me.cmbBoxInputEncoding.TabIndex = 16
         '
         'OpenFileDialog1
@@ -242,11 +241,19 @@ Partial Class TextConverterMainForm
         Me.HelpToolStripMenuItem.Size = New System.Drawing.Size(44, 20)
         Me.HelpToolStripMenuItem.Text = "Help"
         '
+        'txtBoxTest
+        '
+        Me.txtBoxTest.Location = New System.Drawing.Point(71, 187)
+        Me.txtBoxTest.Name = "txtBoxTest"
+        Me.txtBoxTest.Size = New System.Drawing.Size(433, 20)
+        Me.txtBoxTest.TabIndex = 20
+        '
         'TextConverterMainForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(858, 225)
+        Me.Controls.Add(Me.txtBoxTest)
         Me.Controls.Add(Me.btnCloseProgram)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.lblDescription)
@@ -289,4 +296,5 @@ Partial Class TextConverterMainForm
     Friend WithEvents FileToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ExitToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents HelpToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents txtBoxTest As TextBox
 End Class
